@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://ergv744kqdnu"]
+
+[ext_resource type="Texture2D" uid="uid://c8y7bmsum5gag" path="res://assets/startscene.png" id="1_vh257"]
+[ext_resource type="Script" uid="uid://gevi2uqnn3x4" path="res://scenes/game_scene.gd" id="1_xy3my"]
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_xy3my")
+
+[node name="Startscene" type="Sprite2D" parent="."]
+position = Vector2(576.5, 323.00003)
+scale = Vector2(0.7480469, 0.6269531)
+texture = ExtResource("1_vh257")
+
+[node name="NewGame" type="MenuButton" parent="."]
+offset_left = 791.0
+offset_top = 317.0
+offset_right = 1070.0
+offset_bottom = 372.0
+
+[node name="Controls" type="MenuButton" parent="."]
+offset_left = 793.0
+offset_top = 396.0
+offset_right = 1068.0
+offset_bottom = 454.0
+
+[node name="options" type="MenuButton" parent="."]
+offset_left = 793.0
+offset_top = 467.0
+offset_right = 1068.0
+offset_bottom = 525.0
+
+[node name="leave" type="MenuButton" parent="."]
+offset_left = 791.0
+offset_top = 545.0
+offset_right = 1066.0
+offset_bottom = 603.0
+
+[connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="leave" to="." method="_on_leave_pressed"]

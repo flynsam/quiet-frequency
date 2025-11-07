@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://qadxd3pcojeg"]
+
+[ext_resource type="Script" uid="uid://cflt88ao4yndf" path="res://scenes/doctordialog.gd" id="1_2fs2x"]
+[ext_resource type="Texture2D" uid="uid://bcjlxabcc8fsi" path="res://assets/doctordialog.png" id="1_ddcii"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2fs2x"]
+font_size = 80
+font_color = Color(0.5058824, 0.44705883, 0.5294118, 1)
+
+[node name="Doctordialog" type="Node2D"]
+script = ExtResource("1_2fs2x")
+
+[node name="Doctordialog" type="Sprite2D" parent="."]
+position = Vector2(579, 323.00003)
+scale = Vector2(0.7519531, 0.6279297)
+texture = ExtResource("1_ddcii")
+
+[node name="Label" type="Label" parent="Doctordialog"]
+offset_left = -622.3792
+offset_top = -38.220886
+offset_right = 398.96106
+offset_bottom = 297.7791
+text = "Hello Welcome to the clinic! How may i help you today ?"
+label_settings = SubResource("LabelSettings_2fs2x")
+autowrap_mode = 3
+
+[node name="nextbutton" type="MenuButton" parent="."]
+offset_left = 786.0
+offset_top = 448.0
+offset_right = 962.0
+offset_bottom = 514.0
+
+[connection signal="pressed" from="nextbutton" to="." method="_on_nextbutton_pressed"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr2g8yw51id8l"]
+
+[ext_resource type="Script" uid="uid://cjgmllerjpbvx" path="res://scenes/doctorview.gd" id="1_0no7a"]
+[ext_resource type="Texture2D" uid="uid://dt5ja7gghfac8" path="res://assets/doctorview.png" id="2_2vwae"]
+
+[node name="Doctorview" type="Node2D"]
+script = ExtResource("1_0no7a")
+
+[node name="Doctorview" type="Sprite2D" parent="."]
+position = Vector2(574.5, 324)
+scale = Vector2(0.7467448, 0.6308594)
+texture = ExtResource("2_2vwae")
+
+[node name="computer" type="MenuButton" parent="Doctorview"]
+offset_left = 239.03748
+offset_top = -309.10217
+offset_right = 766.66077
+offset_bottom = 267.8885
+
+[node name="patient" type="MenuButton" parent="Doctorview"]
+offset_left = -691.6687
+offset_top = -278.9845
+offset_right = 180.74976
+offset_bottom = 317.02783
+
+[node name="dialog" type="MenuButton" parent="."]
+offset_left = 434.0
+offset_top = 528.0
+offset_right = 933.0
+offset_bottom = 645.0
+
+[connection signal="pressed" from="Doctorview/computer" to="." method="_on_computer_pressed"]
+[connection signal="pressed" from="Doctorview/patient" to="." method="_on_patient_pressed"]
+[connection signal="pressed" from="dialog" to="." method="_on_dialog_pressed"]

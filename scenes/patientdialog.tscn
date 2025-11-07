@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://krhslnvls2o3"]
+
+[ext_resource type="Script" uid="uid://civ7yhwyjnwlv" path="res://scenes/patientdialog.gd" id="1_nmv4l"]
+[ext_resource type="Texture2D" uid="uid://dcsher1cihqgq" path="res://assets/patientdialog.png" id="2_20vvt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pqpbp"]
+font_size = 50
+font_color = Color(0.40392157, 0.3254902, 0.40392157, 1)
+
+[node name="Patientdialog" type="Node2D"]
+script = ExtResource("1_nmv4l")
+
+[node name="Patientdialog" type="Sprite2D" parent="."]
+position = Vector2(575, 323.5)
+scale = Vector2(0.74869794, 0.63183594)
+texture = ExtResource("2_20vvt")
+
+[node name="next" type="MenuButton" parent="."]
+offset_left = 829.0
+offset_top = 503.0
+offset_right = 993.0
+offset_bottom = 560.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 413.0
+offset_right = 787.0
+offset_bottom = 626.0
+text = "Hi Doctor! I am feeling very anxious today."
+label_settings = SubResource("LabelSettings_pqpbp")
+autowrap_mode = 2
+
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]

@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlu8gfu86i8uu"]
+
+[ext_resource type="Script" uid="uid://d1insbsjvt318" path="res://scripts/frequency.gd" id="1_7pqbc"]
+[ext_resource type="Script" uid="uid://b6px2covi82le" path="res://scripts/dialfunc.gd" id="2_6j662"]
+[ext_resource type="Script" uid="uid://8eh6eqb5i01m" path="res://scripts/dial.gd" id="3_dgt0l"]
+[ext_resource type="Texture2D" uid="uid://1cvft6dqqryg" path="res://assets/dialbackground.png" id="4_4677p"]
+[ext_resource type="Texture2D" uid="uid://bvtxvniidwxt" path="res://assets/dial.png" id="5_oi10k"]
+
+[node name="Frequency" type="Node2D"]
+script = ExtResource("1_7pqbc")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 1149.0
+offset_bottom = 648.0
+focus_mode = 2
+script = ExtResource("2_6j662")
+
+[node name="BottomDial" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -146.5
+offset_top = -303.0
+offset_right = 153.5
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 2
+script = ExtResource("3_dgt0l")
+
+[node name="DialBack" type="TextureRect" parent="Control/BottomDial"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -98.5
+offset_top = -148.0
+offset_right = 101.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_4677p")
+expand_mode = 3
+
+[node name="Needle" type="TextureRect" parent="Control/BottomDial"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.5
+offset_top = -56.0
+offset_right = 47.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(50, 50)
+focus_mode = 2
+texture = ExtResource("5_oi10k")
+expand_mode = 4
+stretch_mode = 3
+
+[node name="TopDial" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -73.61899
+offset_right = 126.38098
+offset_bottom = 200.0
+grow_horizontal = 2
+focus_mode = 2
+script = ExtResource("3_dgt0l")
+
+[node name="DialBack" type="TextureRect" parent="Control/TopDial"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -104.88099
+offset_top = -53.0
+offset_right = 95.11903
+offset_bottom = 147.0
+grow_horizontal = 2
+texture = ExtResource("4_4677p")
+expand_mode = 3
+flip_v = true
+
+[node name="Needle" type="TextureRect" parent="Control/TopDial"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.88098
+offset_top = -41.0
+offset_right = 48.11902
+offset_bottom = 59.0
+grow_horizontal = 2
+pivot_offset = Vector2(50, 50)
+focus_mode = 2
+texture = ExtResource("5_oi10k")
+expand_mode = 4
+stretch_mode = 3
+flip_v = true

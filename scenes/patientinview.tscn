@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg2kwa84wqkuy"]
+
+[ext_resource type="Script" uid="uid://djc1bujjq1li5" path="res://scenes/patientinview.gd" id="1_7dts6"]
+[ext_resource type="Texture2D" uid="uid://toyv7vnlgj1y" path="res://assets/patientin.png" id="2_t16g8"]
+
+[node name="Patientinview" type="Node2D"]
+script = ExtResource("1_7dts6")
+
+[node name="Patientin" type="Sprite2D" parent="."]
+position = Vector2(576.5, 323.00003)
+scale = Vector2(0.7493489, 0.6347657)
+texture = ExtResource("2_t16g8")
+
+[node name="minigamescreen" type="MenuButton" parent="."]
+offset_left = 687.0
+offset_top = 80.0
+offset_right = 1115.0
+offset_bottom = 578.0
+
+[connection signal="pressed" from="minigamescreen" to="." method="_on_minigamescreen_pressed"]

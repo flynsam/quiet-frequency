@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dasvnd47v636f"]
+
+[ext_resource type="Texture2D" uid="uid://byru3vwavjn8k" path="res://assets/minigamescreen1.png" id="1_5iev5"]
+[ext_resource type="Script" uid="uid://bv0ndvi71uajr" path="res://scenes/minigame.gd" id="1_22ed1"]
+[ext_resource type="PackedScene" uid="uid://dlu8gfu86i8uu" path="res://scenes/frequency.tscn" id="2_hwsak"]
+
+[node name="Minigame" type="Node2D"]
+script = ExtResource("1_22ed1")
+
+[node name="Minigamescreen1" type="Sprite2D" parent="."]
+position = Vector2(574.75, 329.25)
+scale = Vector2(0.74641925, 0.6381836)
+texture = ExtResource("1_5iev5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 129.0
+offset_top = 113.0
+offset_right = 766.0
+offset_bottom = 514.0
+
+[node name="Frequency" parent="MarginContainer" instance=ExtResource("2_hwsak")]
+
+[node name="backbutton" type="MenuButton" parent="."]
+offset_left = 876.0
+offset_top = 152.0
+offset_right = 968.0
+offset_bottom = 234.0
+
+[connection signal="pressed" from="backbutton" to="." method="_on_backbutton_pressed"]
