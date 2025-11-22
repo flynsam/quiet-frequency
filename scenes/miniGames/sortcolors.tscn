@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnmtunbhdljrn"]
+
+[ext_resource type="Script" uid="uid://kpn0obt7pedj" path="res://scenes/miniGames/sortcolors.gd" id="1_x6up6"]
+
+[node name="Sortcolors" type="Node2D"]
+script = ExtResource("1_x6up6")

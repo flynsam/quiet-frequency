@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dojiv7oj0nn6i"
+path="res://.godot/imported/Game off 2025 theme 2.mp3-917efdad5489c9934807fd3ac3733ac7.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Game off 2025 theme 2.mp3"
+dest_files=["res://.godot/imported/Game off 2025 theme 2.mp3-917efdad5489c9934807fd3ac3733ac7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

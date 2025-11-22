@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://cohlbktpaxol0"]
+
+[ext_resource type="Texture2D" uid="uid://c6cxrrmcjy4ib" path="res://assets/icebreaker/ice1.png" id="1_ptfa5"]
+[ext_resource type="Script" uid="uid://bgp1y2web35k3" path="res://scenes/misc/ice.gd" id="1_yqj6q"]
+[ext_resource type="Texture2D" uid="uid://bvepy2wghsbw4" path="res://assets/icebreaker/ice2.png" id="2_4dvt8"]
+[ext_resource type="PackedScene" uid="uid://bw36grsebalg8" path="res://scenes/misc/dollar.tscn" id="2_7tlfh"]
+[ext_resource type="PackedScene" uid="uid://cetffothfoj10" path="res://scenes/misc/brainpart.tscn" id="2_354b6"]
+[ext_resource type="Texture2D" uid="uid://cucoxlir8r8ld" path="res://assets/icebreaker/ice3.png" id="3_jelm3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tlfh"]
+size = Vector2(174, 173)
+
+[node name="Ice" type="Node2D"]
+script = ExtResource("1_yqj6q")
+
+[node name="Dollar" parent="." instance=ExtResource("2_7tlfh")]
+visible = false
+scale = Vector2(0.2, 0.2)
+
+[node name="Ice3" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_jelm3")
+
+[node name="Ice2" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_4dvt8")
+
+[node name="Ice1" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ptfa5")
+
+[node name="Brainpart" parent="." instance=ExtResource("2_354b6")]
+visible = false
+scale = Vector2(0.2, 0.2)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 3.5)
+shape = SubResource("RectangleShape2D_7tlfh")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

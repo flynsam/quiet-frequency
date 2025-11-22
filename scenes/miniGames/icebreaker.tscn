@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ijnsfuj045ct"]
+
+[ext_resource type="Script" uid="uid://ou4yelj1mbl0" path="res://scenes/miniGames/icebreaker.gd" id="1_16ig3"]
+
+[node name="Icebreaker" type="Node2D"]
+script = ExtResource("1_16ig3")

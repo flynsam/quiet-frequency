@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dasvnd47v636f"]
+
+[ext_resource type="Script" uid="uid://bv0ndvi71uajr" path="res://scripts/minigame.gd" id="1_sdgbx"]
+[ext_resource type="Texture2D" uid="uid://brgbe8onq3yov" path="res://assets/bedzoomed.webp" id="2_5u52m"]
+
+[node name="Minigame" type="Node2D"]
+script = ExtResource("1_sdgbx")
+
+[node name="Minigamescreen1" type="Sprite2D" parent="."]
+position = Vector2(574, 323)
+scale = Vector2(1.2549452, 0.99999994)
+texture = ExtResource("2_5u52m")
+
+[node name="MarginContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 71.0
+offset_top = 65.0
+offset_right = 827.0
+offset_bottom = 575.0

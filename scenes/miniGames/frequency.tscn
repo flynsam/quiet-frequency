@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://dlu8gfu86i8uu"]
+
+[ext_resource type="Script" uid="uid://d1insbsjvt318" path="res://scripts/frequency.gd" id="1_7pqbc"]
+[ext_resource type="Texture2D" uid="uid://cowly06uii54m" path="res://assets/frequencymatch/leftincrease.png" id="2_7pqbc"]
+[ext_resource type="Texture2D" uid="uid://s8tvq46usc2c" path="res://assets/frequencymatch/background.png" id="2_dgt0l"]
+[ext_resource type="Texture2D" uid="uid://c1xktcihji7em" path="res://assets/frequencymatch/leftincreasepress.png" id="3_6j662"]
+[ext_resource type="Texture2D" uid="uid://bfkepaqbpj5k2" path="res://assets/frequencymatch/backgroundpress.png" id="3_4677p"]
+[ext_resource type="FontFile" uid="uid://ciuq1gfluixe8" path="res://assets/fonts/Start Story.ttf" id="3_dgt0l"]
+[ext_resource type="Texture2D" uid="uid://dr7fwqcgdph38" path="res://assets/frequencymatch/rightincrease.png" id="4_dgt0l"]
+[ext_resource type="Texture2D" uid="uid://ciufk0f5h0fxd" path="res://assets/frequencymatch/rightincreasepress.png" id="5_4677p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oi10k"]
+font = ExtResource("3_dgt0l")
+font_size = 35
+font_color = Color(0.5647059, 0.5058824, 0.60784316, 1)
+outline_size = 6
+outline_color = Color(0.70980394, 0.64705884, 0.72156864, 1)
+
+[node name="Frequency" type="Node2D"]
+script = ExtResource("1_7pqbc")
+
+[node name="Control" type="CanvasLayer" parent="."]
+
+[node name="Match" type="TextureButton" parent="Control"]
+offset_left = 378.0
+offset_top = 486.0
+offset_right = 538.0
+offset_bottom = 576.0
+texture_normal = ExtResource("2_dgt0l")
+texture_pressed = ExtResource("3_4677p")
+texture_hover = ExtResource("3_4677p")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/Match"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 25.0
+offset_right = 135.0
+offset_bottom = 70.0
+text = "Match"
+label_settings = SubResource("LabelSettings_oi10k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FrequencyDecrease" type="TextureButton" parent="Control"]
+offset_left = 153.0
+offset_top = 486.0
+offset_right = 243.0
+offset_bottom = 576.0
+texture_normal = ExtResource("2_7pqbc")
+texture_pressed = ExtResource("3_6j662")
+texture_hover = ExtResource("3_6j662")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="FrequencyIncrease" type="TextureButton" parent="Control"]
+offset_left = 245.0
+offset_top = 486.0
+offset_right = 335.0
+offset_bottom = 576.0
+texture_normal = ExtResource("4_dgt0l")
+texture_pressed = ExtResource("5_4677p")
+texture_hover = ExtResource("5_4677p")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AmplitudeDecrease" type="TextureButton" parent="Control"]
+offset_left = 577.0
+offset_top = 486.0
+offset_right = 667.0
+offset_bottom = 576.0
+texture_normal = ExtResource("2_7pqbc")
+texture_pressed = ExtResource("3_6j662")
+texture_hover = ExtResource("3_6j662")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AmplitudeIncrease" type="TextureButton" parent="Control"]
+offset_left = 677.0
+offset_top = 486.0
+offset_right = 767.0
+offset_bottom = 576.0
+texture_normal = ExtResource("4_dgt0l")
+texture_pressed = ExtResource("5_4677p")
+texture_hover = ExtResource("5_4677p")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="Control/Match" to="." method="_on_match_pressed"]
+[connection signal="pressed" from="Control/FrequencyDecrease" to="." method="_on_frequency_decrease_pressed"]
+[connection signal="pressed" from="Control/FrequencyIncrease" to="." method="_on_frequency_increase_pressed"]
+[connection signal="pressed" from="Control/AmplitudeDecrease" to="." method="_on_amplitude_decrease_pressed"]
+[connection signal="pressed" from="Control/AmplitudeIncrease" to="." method="_on_amplitude_increase_pressed"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cetffothfoj10"]
+
+[ext_resource type="Texture2D" uid="uid://boor6gfnh3413" path="res://assets/icebreaker/brainpart.png" id="1_0xob5"]
+[ext_resource type="Script" uid="uid://xc1njl5biaki" path="res://scenes/misc/brain_part.gd" id="2_8ax7u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ax7u"]
+
+[node name="Brainpart" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0xob5")
+script = ExtResource("2_8ax7u")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+scale = Vector2(30, 30)
+shape = SubResource("CircleShape2D_8ax7u")
+
+[connection signal="input_event" from="Sprite2D/Area2D" to="Sprite2D" method="_input_event"]
+[connection signal="mouse_entered" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_mouse_exited"]
