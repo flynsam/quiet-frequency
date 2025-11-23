@@ -8,10 +8,14 @@ func _ready() -> void:
 	var f = freq.instantiate()
 	var i = ice.instantiate()
 	var s = color.instantiate()
-	add_child(f)
+	add_child(s)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if get_child(2).game_end:
+		$Label.text = "Sucess"
+	else:
+		$Label.text = "Fail"
 	pass

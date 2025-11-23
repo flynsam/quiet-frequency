@@ -4,6 +4,7 @@ var colors = []
 var color = preload("res://scenes/misc/colorr.tscn")
 var panel = preload("res://scenes/misc/colorpanel.tscn")
 var total_colors: Array[int]  = [0,0,0,0]
+var game_end = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,6 +37,8 @@ func _on_match_pressed() -> void:
 			suc += 1
 	if suc == 4:
 		print("sucess")
+		game_end = true
+		
 			 
 	
 	

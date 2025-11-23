@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dasvnd47v636f"]
+[gd_scene load_steps=4 format=3 uid="uid://dasvnd47v636f"]
 
 [ext_resource type="Script" uid="uid://bv0ndvi71uajr" path="res://scripts/minigame.gd" id="1_sdgbx"]
 [ext_resource type="Texture2D" uid="uid://b7fdqjnvfo74q" path="res://assets/ui/miniback.webp" id="2_5u52m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5u52m"]
+font_size = 40
 
 [node name="Minigame" type="Node2D"]
 script = ExtResource("1_sdgbx")
@@ -10,3 +13,10 @@ script = ExtResource("1_sdgbx")
 position = Vector2(574.5, 325.49997)
 scale = Vector2(0.9144894, 0.90436)
 texture = ExtResource("2_5u52m")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 302.0
+offset_top = 135.0
+offset_right = 725.0
+offset_bottom = 196.0
+label_settings = SubResource("LabelSettings_5u52m")

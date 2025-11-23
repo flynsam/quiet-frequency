@@ -10,7 +10,6 @@ var userFrequency = int(randi_range(-10,10))
 var userAmplitidue = int(randi_range(-15,15)*10) 
 
 
-
 func _process(_delta):
 	if !game_end:
 		queue_redraw()
@@ -39,7 +38,7 @@ func draw_dashed_sine(amplitude: float, frequency: float, phase_shift: float, ce
 
 func _draw():
 	var offset = Time.get_ticks_msec() / 300.0 
-	var start_y = 576 / 2  + 64
+	var start_y = 576 / 2  
 	#var total_length = parent_size.x
 
 	

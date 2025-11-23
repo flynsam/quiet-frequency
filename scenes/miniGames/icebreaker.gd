@@ -2,6 +2,7 @@ extends Node2D
 
 var num_ice_nodes = randi_range(3,5)
 var ice_nodes = []
+var game_end = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,5 +31,6 @@ func _on_match_pressed() -> void:
 			count += 1
 	if count == len(ice_nodes):
 		print('sucess')
+		game_end = true
 
 	pass # Replace with function body.
