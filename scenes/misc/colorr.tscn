@@ -1,21 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://uqpwcmsxglyj"]
 
+[ext_resource type="Script" uid="uid://dkjn5mjwoojdy" path="res://scenes/misc/colorr.gd" id="1_t1n3m"]
 [ext_resource type="Texture2D" uid="uid://bh4qi6u8a520l" path="res://assets/sorting/blue.png" id="1_vk0t5"]
-[ext_resource type="Texture2D" uid="uid://dxhonqkv85n4f" path="res://assets/sorting/green.png" id="2_v81sg"]
-[ext_resource type="Texture2D" uid="uid://bo17s0nm4pejt" path="res://assets/sorting/yllow.png" id="3_qnxrv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ycft"]
+radius = 19.09632
 
 [node name="Color" type="Node2D"]
 
-[node name="blue" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+[node name="value" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_vk0t5")
+script = ExtResource("1_t1n3m")
 
-[node name="green" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_v81sg")
+[node name="Area2D" type="Area2D" parent="value"]
+scale = Vector2(9.999999, 9.999999)
 
-[node name="yellow" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_qnxrv")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="value/Area2D"]
+shape = SubResource("CircleShape2D_2ycft")
+
+[connection signal="area_entered" from="value/Area2D" to="value" method="_on_area_2d_area_entered"]
+[connection signal="input_event" from="value/Area2D" to="value" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="value/Area2D" to="value" method="_on_area_2d_mouse_entered"]
