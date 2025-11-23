@@ -51,6 +51,7 @@ func _on_match_pressed() -> void:
 	print(userFrequency,"da",userAmplitidue)
 	if userAmplitidue == _amplitude and userFrequency == _frequency:
 		game_end = true 
+		print("sucess")
 	pass # Replace with function body.
 
 

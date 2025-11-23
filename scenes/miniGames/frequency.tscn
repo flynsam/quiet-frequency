@@ -22,9 +22,9 @@ script = ExtResource("1_7pqbc")
 [node name="Control" type="CanvasLayer" parent="."]
 
 [node name="Match" type="TextureButton" parent="Control"]
-offset_left = 378.0
+offset_left = 345.0
 offset_top = 486.0
-offset_right = 538.0
+offset_right = 570.0
 offset_bottom = 576.0
 texture_normal = ExtResource("2_dgt0l")
 texture_pressed = ExtResource("3_4677p")
@@ -38,7 +38,7 @@ offset_left = 27.0
 offset_top = 25.0
 offset_right = 135.0
 offset_bottom = 70.0
-text = "Match"
+text = "CONFIRM"
 label_settings = SubResource("LabelSettings_oi10k")
 horizontal_alignment = 1
 vertical_alignment = 1

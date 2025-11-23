@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bh4qi6u8a520l" path="res://assets/sorting/blue.png" id="1_vk0t5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ycft"]
-radius = 19.09632
+radius = 40.749233
 
 [node name="Color" type="Node2D"]
 

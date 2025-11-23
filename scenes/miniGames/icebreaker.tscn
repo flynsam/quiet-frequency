@@ -1,6 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://ijnsfuj045ct"]
+[gd_scene load_steps=6 format=3 uid="uid://ijnsfuj045ct"]
 
 [ext_resource type="Script" uid="uid://ou4yelj1mbl0" path="res://scenes/miniGames/icebreaker.gd" id="1_16ig3"]
+[ext_resource type="Texture2D" uid="uid://s8tvq46usc2c" path="res://assets/frequencymatch/background.png" id="2_kb4w4"]
+[ext_resource type="Texture2D" uid="uid://bfkepaqbpj5k2" path="res://assets/frequencymatch/backgroundpress.png" id="3_025xq"]
+[ext_resource type="FontFile" uid="uid://ciuq1gfluixe8" path="res://assets/fonts/Start Story.ttf" id="4_36wyp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2w2if"]
+font = ExtResource("4_36wyp")
+font_size = 35
+font_color = Color(0.5647059, 0.5058824, 0.60784316, 1)
+outline_size = 6
+outline_color = Color(0.70980394, 0.64705884, 0.72156864, 1)
 
 [node name="Icebreaker" type="Node2D"]
 script = ExtResource("1_16ig3")
+
+[node name="Match" type="TextureButton" parent="."]
+offset_left = 108.0
+offset_top = 494.0
+offset_right = 304.0
+offset_bottom = 584.0
+texture_normal = ExtResource("2_kb4w4")
+texture_pressed = ExtResource("3_025xq")
+texture_hover = ExtResource("3_025xq")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Match"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 25.0
+offset_right = 135.0
+offset_bottom = 70.0
+text = "Confirm"
+label_settings = SubResource("LabelSettings_2w2if")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Match" to="." method="_on_match_pressed"]

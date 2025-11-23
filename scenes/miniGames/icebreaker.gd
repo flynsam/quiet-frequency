@@ -21,3 +21,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_match_pressed() -> void:
+	var count = 0
+	for b in ice_nodes:
+		if b.brain_part.visible:
+			count += 1
+	if count == len(ice_nodes):
+		print('sucess')
+
+	pass # Replace with function body.

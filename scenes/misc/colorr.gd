@@ -5,14 +5,18 @@ var offset1: Vector2 = Vector2.ZERO
 @onready var blue = preload("res://assets/sorting/blue.png")
 @onready var green = preload("res://assets/sorting/green.png")
 @onready var yellow = preload("res://assets/sorting/yllow.png")
+@onready var purple = preload("res://assets/sorting/purple.png")
+@export var circle_color = -1
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var c = [blue,green,yellow]
-	var i = randi_range(0,2)
-	$".".texture = c[i]
-	self.modulate = Color(1, 1, 1, 0.5)
+	var c = [blue,green,yellow,purple]
+	circle_color = randi_range(0,3)
+	$".".texture = c[circle_color]
+	var s = randf_range(0.05,0.2)
+	$".".scale = Vector2(s,s)	
+	self.modulate = Color(1, 1, 1, 0.6)
 	pass # Replace with function body.
 
 
