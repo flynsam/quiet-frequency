@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://de1bjvpavlojd"]
+
+[ext_resource type="FontFile" uid="uid://kr7vh02ncw21" path="res://assets/fonts/Inter-Medium.otf" id="1_nixot"]
+
+[resource]
+default_font = ExtResource("1_nixot")

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cmwsg07e6ntag"
-path="res://.godot/imported/August Shining.ttf-22a8a54cd663069b43bfa18079a121e6.fontdata"
+uid="uid://kr7vh02ncw21"
+path="res://.godot/imported/Inter-Medium.otf-2ed4a5bd7129a7cd1597f99dd281afdf.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/August Shining.ttf"
-dest_files=["res://.godot/imported/August Shining.ttf-22a8a54cd663069b43bfa18079a121e6.fontdata"]
+source_file="res://assets/fonts/Inter-Medium.otf"
+dest_files=["res://.godot/imported/Inter-Medium.otf-2ed4a5bd7129a7cd1597f99dd281afdf.fontdata"]
 
 [params]
 

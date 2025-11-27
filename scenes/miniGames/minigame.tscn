@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dasvnd47v636f"]
+[gd_scene load_steps=7 format=3 uid="uid://dasvnd47v636f"]
 
 [ext_resource type="Script" uid="uid://bv0ndvi71uajr" path="res://scripts/minigame.gd" id="1_sdgbx"]
-[ext_resource type="Texture2D" uid="uid://b7fdqjnvfo74q" path="res://assets/ui/miniback.webp" id="2_5u52m"]
+[ext_resource type="Texture2D" uid="uid://cda3fw85omfow" path="res://assets/ui/miniback.jpg" id="2_sdgbx"]
+[ext_resource type="PackedScene" uid="uid://bdo416wljf6mf" path="res://scenes/miniGames/health.tscn" id="3_sdgbx"]
+[ext_resource type="Texture2D" uid="uid://pjt4p4i6cg0t" path="res://assets/ui/confirm.JPG" id="4_0o4au"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5u52m"]
-font_size = 40
+font_color = Color(0.056291588, 0.056291603, 0.056291595, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0o4au"]
+font_color = Color(0.017732391, 0.017732391, 0.01773239, 1)
 
 [node name="Minigame" type="Node2D"]
 script = ExtResource("1_sdgbx")
@@ -12,11 +17,122 @@ script = ExtResource("1_sdgbx")
 [node name="Minigamescreen1" type="Sprite2D" parent="."]
 position = Vector2(574.5, 325.49997)
 scale = Vector2(0.9144894, 0.90436)
-texture = ExtResource("2_5u52m")
+texture = ExtResource("2_sdgbx")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 302.0
-offset_top = 135.0
-offset_right = 725.0
-offset_bottom = 196.0
+[node name="Health" parent="." instance=ExtResource("3_sdgbx")]
+position = Vector2(1022.9999, 274.99997)
+rotation = 1.5707964
+scale = Vector2(0.28709126, 0.1085607)
+
+[node name="confirm" type="TextureButton" parent="."]
+offset_left = 955.0
+offset_top = 166.0
+offset_right = 1033.0
+offset_bottom = 240.0
+texture_normal = ExtResource("4_0o4au")
+
+[node name="Label" type="Label" parent="confirm"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 22.0
+offset_right = 147.0
+offset_bottom = 77.0
+text = "Scan"
 label_settings = SubResource("LabelSettings_5u52m")
+
+[node name="Info" type="TextureButton" parent="."]
+offset_left = 28.0
+offset_top = 6.0
+offset_right = 93.0
+offset_bottom = 62.0
+texture_normal = ExtResource("4_0o4au")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Info"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.20500001
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 52.0
+offset_bottom = 25.52
+text = "Info"
+label_settings = SubResource("LabelSettings_0o4au")
+
+[node name="power" type="TextureButton" parent="."]
+offset_left = 937.0
+offset_top = 42.0
+offset_right = 1031.0
+offset_bottom = 126.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Screen" type="ColorRect" parent="CanvasLayer"]
+offset_left = 89.0
+offset_top = 36.0
+offset_right = 911.0
+offset_bottom = 612.0
+color = Color(0.078431375, 0.12156863, 0.34509805, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Screen"]
+layout_mode = 0
+offset_left = 862.0
+offset_top = 237.0
+offset_right = 935.0
+offset_bottom = 574.0
+color = Color(0.078431375, 0.12156863, 0.34509805, 1)
+
+[node name="InfoRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_left = 89.0
+offset_top = 36.0
+offset_right = 1035.0
+offset_bottom = 613.0
+color = Color(1, 1, 1, 0.003921569)
+
+[node name="Label" type="Label" parent="CanvasLayer/InfoRect"]
+layout_mode = 0
+offset_left = 943.0
+offset_top = 19.0
+offset_right = 1033.0
+offset_bottom = 68.0
+text = "1) Switch on
+ the power "
+
+[node name="Label2" type="Label" parent="CanvasLayer/InfoRect"]
+layout_mode = 0
+offset_left = 959.0
+offset_top = 146.0
+offset_right = 1006.0
+offset_bottom = 193.0
+text = "2) Scan to 
+start scan"
+
+[node name="Label3" type="Label" parent="CanvasLayer/InfoRect"]
+layout_mode = 0
+offset_left = 934.0
+offset_top = 291.0
+offset_right = 1058.0
+offset_bottom = 522.0
+text = "3) Indicator 
+of patient
+ health
+
+RED - bad
+GREEN - good
+Push scan again
+to check the
+status"
+
+[node name="Label4" type="Label" parent="CanvasLayer/InfoRect"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -30.0
+offset_right = 836.0
+offset_bottom = 195.0
+text = "4) Clear patients mind by solving the scan puzzle. Once done scan again to check. "
+
+[connection signal="pressed" from="confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Info" to="." method="_on_info_pressed"]
+[connection signal="pressed" from="power" to="." method="_on_power_pressed"]
