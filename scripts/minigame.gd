@@ -14,6 +14,7 @@ func game_start() ->void:
 	var s = color.instantiate()
 	add_child(f)
 	$Health.game_start = true
+	$Health.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -22,6 +23,8 @@ func _process(delta: float) -> void:
 
 
 func _on_confirm_pressed() -> void:
+	if $ParallaxBackground/Screen/off.visible:
+		return
 	if ! start:
 		game_start()
 		start = true
@@ -32,20 +35,45 @@ func _on_confirm_pressed() -> void:
 		$Health.game_end = true
 	else:
 		$Health.game_end = false
-	pass # Replace with function body.
+	 # Replace with function body.
 
 
 func _on_power_pressed() -> void:
-	if $CanvasLayer/Screen.visible:
-		$CanvasLayer/Screen.visible = false
+	if $ParallaxBackground/Screen/on.visible:
+		$ParallaxBackground/Screen/on.visible = false
+		$ParallaxBackground/Screen/off.visible = true
 		$Health.state = "white"
+		if start:
+			get_child(-1).visible = false
+			$Health.visible = false
 	else:
-		$CanvasLayer/Screen.visible = true
-		$Health.state = "black"
-		$Health/ColorRect.modulate = Color(0, 0, 0, 1)
+		$ParallaxBackground/Screen/on.visible = true
+		$ParallaxBackground/Screen/off.visible = false
+		
+		if start:
+			get_child(-1).visible = true
+			$Health.visible = true
 	pass # Replace with function body.
 
 
 func _on_info_pressed() -> void:
 	$CanvasLayer/InfoRect.visible = ! $CanvasLayer/InfoRect.visible
 	pass # Replace with function body.
+
+
+func show_patient(sprite_name_to_show: String):
+	var found_child_node = $ParallaxBackground/patient.get_node_or_null(sprite_name_to_show)
+	
+	if found_child_node == null:
+		print("Error: Sprite with name '", sprite_name_to_show, "' not found.")
+		return
+
+	# 1. Hide all children first
+	for child in $ParallaxBackground/patient.get_children():
+		# Check if the child can be hidden (e.g., Sprite2D, Node2D, Control)
+		if child is CanvasItem:
+			child.visible = false
+	
+	# 2. Show only the specific child that was requested
+	# We already checked it exists and is valid
+	found_child_node.visible = true

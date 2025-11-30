@@ -1,61 +1,71 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlu8gfu86i8uu"]
+[gd_scene load_steps=7 format=3 uid="uid://dlu8gfu86i8uu"]
 
 [ext_resource type="Script" uid="uid://d1insbsjvt318" path="res://scripts/frequency.gd" id="1_7pqbc"]
-[ext_resource type="Texture2D" uid="uid://cowly06uii54m" path="res://assets/frequencymatch/leftincrease.png" id="2_7pqbc"]
-[ext_resource type="Texture2D" uid="uid://c1xktcihji7em" path="res://assets/frequencymatch/leftincreasepress.png" id="3_6j662"]
-[ext_resource type="Texture2D" uid="uid://dr7fwqcgdph38" path="res://assets/frequencymatch/rightincrease.png" id="4_dgt0l"]
-[ext_resource type="Texture2D" uid="uid://ciufk0f5h0fxd" path="res://assets/frequencymatch/rightincreasepress.png" id="5_4677p"]
+[ext_resource type="Texture2D" uid="uid://cdj54y5ijg0eh" path="res://assets/Scanner/Screen UI.png" id="2_swj1j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oo5x"]
+atlas = ExtResource("2_swj1j")
+region = Rect2(159, 1559, 299, 238)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unls8"]
+atlas = ExtResource("2_swj1j")
+region = Rect2(530, 1559, 299, 238)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3wx0"]
+atlas = ExtResource("2_swj1j")
+region = Rect2(532, 1187, 299, 238)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdyin"]
+atlas = ExtResource("2_swj1j")
+region = Rect2(159, 1186, 299, 238)
 
 [node name="Frequency" type="Node2D"]
 script = ExtResource("1_7pqbc")
 
-[node name="Control" type="CanvasLayer" parent="."]
-
-[node name="FrequencyDecrease" type="TextureButton" parent="Control"]
-offset_left = 153.0
-offset_top = 486.0
-offset_right = 243.0
-offset_bottom = 576.0
-texture_normal = ExtResource("2_7pqbc")
-texture_pressed = ExtResource("3_6j662")
-texture_hover = ExtResource("3_6j662")
+[node name="FrequencyDecrease" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(20, 20)
+offset_left = 151.0
+offset_top = 417.0
+offset_right = 233.0
+offset_bottom = 485.0
+texture_normal = SubResource("AtlasTexture_1oo5x")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="FrequencyIncrease" type="TextureButton" parent="Control"]
-offset_left = 245.0
-offset_top = 486.0
-offset_right = 335.0
-offset_bottom = 576.0
-texture_normal = ExtResource("4_dgt0l")
-texture_pressed = ExtResource("5_4677p")
-texture_hover = ExtResource("5_4677p")
+[node name="FrequencyIncrease" type="TextureButton" parent="."]
+offset_left = 258.0
+offset_top = 415.0
+offset_right = 336.0
+offset_bottom = 487.0
+texture_normal = SubResource("AtlasTexture_unls8")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="AmplitudeDecrease" type="TextureButton" parent="Control"]
-offset_left = 577.0
-offset_top = 486.0
-offset_right = 667.0
-offset_bottom = 576.0
-texture_normal = ExtResource("2_7pqbc")
-texture_pressed = ExtResource("3_6j662")
-texture_hover = ExtResource("3_6j662")
+[node name="AmplitudeDecrease" type="TextureButton" parent="."]
+offset_left = 602.0
+offset_top = 415.0
+offset_right = 692.0
+offset_bottom = 485.0
+texture_normal = SubResource("AtlasTexture_r3wx0")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="AmplitudeIncrease" type="TextureButton" parent="Control"]
-offset_left = 677.0
-offset_top = 486.0
-offset_right = 767.0
-offset_bottom = 576.0
-texture_normal = ExtResource("4_dgt0l")
-texture_pressed = ExtResource("5_4677p")
-texture_hover = ExtResource("5_4677p")
+[node name="AmplitudeIncrease" type="TextureButton" parent="."]
+offset_left = 716.0
+offset_top = 414.0
+offset_right = 800.0
+offset_bottom = 489.0
+texture_normal = SubResource("AtlasTexture_xdyin")
 ignore_texture_size = true
 stretch_mode = 0
 
-[connection signal="pressed" from="Control/FrequencyDecrease" to="." method="_on_frequency_decrease_pressed"]
-[connection signal="pressed" from="Control/FrequencyIncrease" to="." method="_on_frequency_increase_pressed"]
-[connection signal="pressed" from="Control/AmplitudeDecrease" to="." method="_on_amplitude_decrease_pressed"]
-[connection signal="pressed" from="Control/AmplitudeIncrease" to="." method="_on_amplitude_increase_pressed"]
+[node name="info" type="TextureButton" parent="."]
+offset_left = 795.0
+offset_top = 26.0
+offset_right = 835.0
+offset_bottom = 66.0
+
+[connection signal="pressed" from="FrequencyDecrease" to="." method="_on_frequency_decrease_pressed"]
+[connection signal="pressed" from="FrequencyIncrease" to="." method="_on_frequency_increase_pressed"]
+[connection signal="pressed" from="AmplitudeDecrease" to="." method="_on_amplitude_decrease_pressed"]
+[connection signal="pressed" from="AmplitudeIncrease" to="." method="_on_amplitude_increase_pressed"]

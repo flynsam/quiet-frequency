@@ -1,9 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://dasvnd47v636f"]
+[gd_scene load_steps=18 format=3 uid="uid://dasvnd47v636f"]
 
 [ext_resource type="Script" uid="uid://bv0ndvi71uajr" path="res://scripts/minigame.gd" id="1_sdgbx"]
+[ext_resource type="Texture2D" uid="uid://ypufandbmdgd" path="res://assets/Scanner/Bed for scanner.png" id="2_1pb3s"]
 [ext_resource type="Texture2D" uid="uid://cda3fw85omfow" path="res://assets/ui/miniback.jpg" id="2_sdgbx"]
+[ext_resource type="Texture2D" uid="uid://c4tiifqie4fb6" path="res://assets/Scanner/Npcs Sleeping/Cat.png" id="3_a6aou"]
+[ext_resource type="Texture2D" uid="uid://exfejvogij7r" path="res://assets/Scanner/Scanner Monitor.png" id="3_pqeat"]
 [ext_resource type="PackedScene" uid="uid://bdo416wljf6mf" path="res://scenes/miniGames/health.tscn" id="3_sdgbx"]
+[ext_resource type="Texture2D" uid="uid://bk4tcpn2aaoep" path="res://assets/Scanner/Screen & Mouse.png" id="3_ymh8d"]
 [ext_resource type="Texture2D" uid="uid://pjt4p4i6cg0t" path="res://assets/ui/confirm.JPG" id="4_0o4au"]
+[ext_resource type="Texture2D" uid="uid://ddqrd1k3eams1" path="res://assets/Scanner/Black Scanner Screen.png" id="4_a6aou"]
+[ext_resource type="Texture2D" uid="uid://b0esg2r5yjsgc" path="res://assets/Scanner/Npcs Sleeping/Coolguy.png" id="4_pnu8g"]
+[ext_resource type="Texture2D" uid="uid://b5y34dea7xpjy" path="res://assets/Scanner/Npcs Sleeping/Cyborg.png" id="5_m608y"]
+[ext_resource type="Texture2D" uid="uid://dsxjxp580ytib" path="res://assets/Scanner/Npcs Sleeping/Demon.png" id="6_u853y"]
+[ext_resource type="Texture2D" uid="uid://86036oot1hrq" path="res://assets/Scanner/Npcs Sleeping/Offish.png" id="7_4b8a5"]
+[ext_resource type="Texture2D" uid="uid://j5jq0rorywry" path="res://assets/Scanner/Npcs Sleeping/Ram.png" id="8_ie11h"]
+[ext_resource type="Texture2D" uid="uid://2tq13t0gug25" path="res://assets/Scanner/Npcs Sleeping/Sirene.png" id="9_mup28"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5u52m"]
 font_color = Color(0.056291588, 0.056291603, 0.056291595, 1)
@@ -14,24 +25,98 @@ font_color = Color(0.017732391, 0.017732391, 0.01773239, 1)
 [node name="Minigame" type="Node2D"]
 script = ExtResource("1_sdgbx")
 
+[node name="Health" parent="." instance=ExtResource("3_sdgbx")]
+visible = false
+position = Vector2(988, 273)
+rotation = 1.5707964
+scale = Vector2(0.28709126, 0.1085607)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(661.5, 321.625)
+scale = Vector2(0.34116337, 0.34499192)
+texture = ExtResource("2_1pb3s")
+
+[node name="patient" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="cat" type="Sprite2D" parent="ParallaxBackground/patient"]
+visible = false
+position = Vector2(457.24997, 323.00003)
+scale = Vector2(0.28557047, 0.25101382)
+texture = ExtResource("3_a6aou")
+
+[node name="coolguy" type="Sprite2D" parent="ParallaxBackground/patient"]
+position = Vector2(442, 317)
+scale = Vector2(0.34697992, 0.29663426)
+texture = ExtResource("4_pnu8g")
+
+[node name="cyborg" type="Sprite2D" parent="ParallaxBackground/patient"]
+visible = false
+position = Vector2(444.75003, 308.75003)
+scale = Vector2(0.39295304, 0.384631)
+texture = ExtResource("5_m608y")
+
+[node name="demon" type="Sprite2D" parent="ParallaxBackground/patient"]
+visible = false
+position = Vector2(378, 352.99988)
+scale = Vector2(0.43288592, 0.4026764)
+texture = ExtResource("6_u853y")
+
+[node name="offish" type="Sprite2D" parent="ParallaxBackground/patient"]
+visible = false
+position = Vector2(402.99976, 312)
+scale = Vector2(0.36677852, 0.3100162)
+texture = ExtResource("7_4b8a5")
+
+[node name="ram" type="Sprite2D" parent="ParallaxBackground/patient"]
+visible = false
+position = Vector2(409.00012, 325)
+scale = Vector2(0.32706934, 0.26277375)
+texture = ExtResource("8_ie11h")
+
+[node name="sirene" type="Sprite2D" parent="ParallaxBackground/patient"]
+visible = false
+position = Vector2(475, 312)
+scale = Vector2(0.30447426, 0.2967356)
+texture = ExtResource("9_mup28")
+
+[node name="Screen" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="on" type="Sprite2D" parent="ParallaxBackground/Screen"]
+visible = false
+position = Vector2(492.37497, 316.125)
+scale = Vector2(0.3157841, 0.3271261)
+texture = ExtResource("3_ymh8d")
+
+[node name="off" type="Sprite2D" parent="ParallaxBackground/Screen"]
+position = Vector2(424.24994, 305.62497)
+scale = Vector2(0.3220358, 0.3101176)
+texture = ExtResource("4_a6aou")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(444.49994, 317.99997)
+scale = Vector2(0.31431767, 0.32441196)
+texture = ExtResource("3_pqeat")
+
 [node name="Minigamescreen1" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(574.5, 325.49997)
 scale = Vector2(0.9144894, 0.90436)
 texture = ExtResource("2_sdgbx")
 
-[node name="Health" parent="." instance=ExtResource("3_sdgbx")]
-position = Vector2(1022.9999, 274.99997)
-rotation = 1.5707964
-scale = Vector2(0.28709126, 0.1085607)
-
 [node name="confirm" type="TextureButton" parent="."]
-offset_left = 955.0
-offset_top = 166.0
-offset_right = 1033.0
-offset_bottom = 240.0
-texture_normal = ExtResource("4_0o4au")
+offset_left = 914.0
+offset_top = 164.0
+offset_right = 984.0
+offset_bottom = 225.0
 
 [node name="Label" type="Label" parent="confirm"]
+visible = false
 layout_mode = 0
 offset_left = 22.0
 offset_top = 22.0
@@ -41,6 +126,7 @@ text = "Scan"
 label_settings = SubResource("LabelSettings_5u52m")
 
 [node name="Info" type="TextureButton" parent="."]
+visible = false
 offset_left = 28.0
 offset_top = 6.0
 offset_right = 93.0
@@ -61,77 +147,10 @@ text = "Info"
 label_settings = SubResource("LabelSettings_0o4au")
 
 [node name="power" type="TextureButton" parent="."]
-offset_left = 937.0
-offset_top = 42.0
-offset_right = 1031.0
-offset_bottom = 126.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Screen" type="ColorRect" parent="CanvasLayer"]
-offset_left = 89.0
-offset_top = 36.0
-offset_right = 911.0
-offset_bottom = 612.0
-color = Color(0.078431375, 0.12156863, 0.34509805, 1)
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Screen"]
-layout_mode = 0
-offset_left = 862.0
-offset_top = 237.0
-offset_right = 935.0
-offset_bottom = 574.0
-color = Color(0.078431375, 0.12156863, 0.34509805, 1)
-
-[node name="InfoRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-offset_left = 89.0
-offset_top = 36.0
-offset_right = 1035.0
-offset_bottom = 613.0
-color = Color(1, 1, 1, 0.003921569)
-
-[node name="Label" type="Label" parent="CanvasLayer/InfoRect"]
-layout_mode = 0
-offset_left = 943.0
-offset_top = 19.0
-offset_right = 1033.0
-offset_bottom = 68.0
-text = "1) Switch on
- the power "
-
-[node name="Label2" type="Label" parent="CanvasLayer/InfoRect"]
-layout_mode = 0
-offset_left = 959.0
-offset_top = 146.0
-offset_right = 1006.0
-offset_bottom = 193.0
-text = "2) Scan to 
-start scan"
-
-[node name="Label3" type="Label" parent="CanvasLayer/InfoRect"]
-layout_mode = 0
-offset_left = 934.0
-offset_top = 291.0
-offset_right = 1058.0
-offset_bottom = 522.0
-text = "3) Indicator 
-of patient
- health
-
-RED - bad
-GREEN - good
-Push scan again
-to check the
-status"
-
-[node name="Label4" type="Label" parent="CanvasLayer/InfoRect"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = -30.0
-offset_right = 836.0
-offset_bottom = 195.0
-text = "4) Clear patients mind by solving the scan puzzle. Once done scan again to check. "
+offset_left = 903.0
+offset_top = 44.0
+offset_right = 997.0
+offset_bottom = 128.0
 
 [connection signal="pressed" from="confirm" to="." method="_on_confirm_pressed"]
 [connection signal="pressed" from="Info" to="." method="_on_info_pressed"]

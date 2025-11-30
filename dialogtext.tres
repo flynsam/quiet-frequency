@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bid3pgg3un3a"]
+
+[ext_resource type="FontFile" uid="uid://kr7vh02ncw21" path="res://assets/fonts/Inter-Medium.otf" id="1_nd351"]
+
+[resource]
+font = ExtResource("1_nd351")
+font_size = 40
+font_color = Color(0.19607843, 0.29803923, 0.68235296, 1)

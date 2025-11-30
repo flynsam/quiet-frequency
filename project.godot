@@ -13,3 +13,7 @@ config_version=5
 config/name="Quiet Frequency"
 run/main_scene="uid://ergv744kqdnu"
 config/features=PackedStringArray("4.5", "Forward Plus")
+
+[display]
+
+mouse_cursor/custom_image="uid://lbxrw5dubpwo"

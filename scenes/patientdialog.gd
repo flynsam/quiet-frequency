@@ -3,6 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$ParallaxBackground/dialog/box/Label.text = "Current dialog test testing with the typing animation hoorah Current dialog test testing with the typing animation hoorah Current dialog test testing with the typing animation hoorahCurrent dialog test testing with the typing animation hoorah"
 	pass # Replace with function body.
 
 
@@ -12,4 +13,4 @@ func _process(delta: float) -> void:
 
 
 func _on_next_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/doctorview.tscn")
+	$ParallaxBackground/dialog/box/Label.finish_typing_immediately()

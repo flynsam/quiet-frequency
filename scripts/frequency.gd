@@ -18,7 +18,7 @@ func _process(_delta):
 	
 func draw_dashed_sine(amplitude: float, frequency: float, phase_shift: float, center_y: float,color,
 				 dash_length: int = 15, gap_length: int = 10):
-	var total_length = 896#get_parent().shape.size.x
+	var total_length = 866#get_parent().shape.size.x
 	var current_x = 128
 
 	while current_x < total_length:
