@@ -13,10 +13,10 @@ var _amplitude = 250
 
 func update_color():
 	var colors = {
-		"white": Color("#e0e0e0"),
+		"white": Color("#cb6ef9"),
 		"black": Color("#030303"),
 		"success": Color("#bae3e5"),
-		"error": Color("#ff9f9f")
+		"error": Color("#cb6ef9")
 		}
 
 	$ColorRect.color = colors[state]

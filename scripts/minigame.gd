@@ -4,8 +4,12 @@ var freq = preload("res://scenes/miniGames/frequency.tscn")
 var ice = preload("res://scenes/miniGames/icebreaker.tscn")
 var color = preload("res://scenes/miniGames/sortcolors.tscn")
 var start = false
+@onready var scanner_line = $scanner# Get the path to your scanner node
+@onready var animation_player = $AnimationPlayer
+const SCAN_ANIM_NAME = "XeroxScan"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	scanner_line.hide()
 	pass # Replace with function body.
 
 func game_start() ->void:
@@ -25,6 +29,12 @@ func _process(delta: float) -> void:
 func _on_confirm_pressed() -> void:
 	if $ParallaxBackground/Screen/off.visible:
 		return
+	if not animation_player.is_playing():
+		scanner_line.show()
+		animation_player.play(SCAN_ANIM_NAME)
+		await animation_player.animation_finished
+		scanner_line.hide()
+		print("animation")
 	if ! start:
 		game_start()
 		start = true
@@ -77,3 +87,10 @@ func show_patient(sprite_name_to_show: String):
 	# 2. Show only the specific child that was requested
 	# We already checked it exists and is valid
 	found_child_node.visible = true
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == SCAN_ANIM_NAME:
+		scanner_line.hide()
+		print("done")
+	pass # Replace with function body.

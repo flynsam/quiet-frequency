@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlu8gfu86i8uu"]
+[gd_scene load_steps=10 format=3 uid="uid://dlu8gfu86i8uu"]
 
 [ext_resource type="Script" uid="uid://d1insbsjvt318" path="res://scripts/frequency.gd" id="1_7pqbc"]
 [ext_resource type="Texture2D" uid="uid://cdj54y5ijg0eh" path="res://assets/Scanner/Screen UI.png" id="2_swj1j"]
+[ext_resource type="LabelSettings" uid="uid://bid3pgg3un3a" path="res://dialogtext.tres" id="3_1oo5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1oo5x"]
 atlas = ExtResource("2_swj1j")
@@ -18,6 +19,14 @@ region = Rect2(532, 1187, 299, 238)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xdyin"]
 atlas = ExtResource("2_swj1j")
 region = Rect2(159, 1186, 299, 238)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swj1j"]
+atlas = ExtResource("2_swj1j")
+region = Rect2(176, 873, 264, 238)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj4f3"]
+atlas = ExtResource("2_swj1j")
+region = Rect2(548, 579, 264, 238)
 
 [node name="Frequency" type="Node2D"]
 script = ExtResource("1_7pqbc")
@@ -60,12 +69,40 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="info" type="TextureButton" parent="."]
-offset_left = 795.0
-offset_top = 26.0
-offset_right = 835.0
-offset_bottom = 66.0
+offset_left = 785.0
+offset_top = 69.0
+offset_right = 833.0
+offset_bottom = 118.0
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_swj1j")
+texture_pressed = SubResource("AtlasTexture_xj4f3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 122.0
+offset_top = 489.0
+offset_right = 891.0
+offset_bottom = 642.0
+text = "Increase or Decrease frequency 
+and amplitude to match the purple wave"
+label_settings = ExtResource("3_1oo5x")
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 685.0
+offset_top = 131.0
+offset_right = 971.0
+offset_bottom = 284.0
+text = "After matching
+Press      ->
+"
+label_settings = ExtResource("3_1oo5x")
 
 [connection signal="pressed" from="FrequencyDecrease" to="." method="_on_frequency_decrease_pressed"]
 [connection signal="pressed" from="FrequencyIncrease" to="." method="_on_frequency_increase_pressed"]
 [connection signal="pressed" from="AmplitudeDecrease" to="." method="_on_amplitude_decrease_pressed"]
 [connection signal="pressed" from="AmplitudeIncrease" to="." method="_on_amplitude_increase_pressed"]
+[connection signal="toggled" from="info" to="." method="_on_info_toggled"]

@@ -73,3 +73,8 @@ func _on_amplitude_decrease_pressed() -> void:
 func _on_amplitude_increase_pressed() -> void:
 	userAmplitidue += 10
 	pass # Replace with function body.
+
+
+func _on_info_toggled(toggled_on: bool) -> void:
+	$CanvasLayer.visible = ! $CanvasLayer.visible
+	pass # Replace with function body.

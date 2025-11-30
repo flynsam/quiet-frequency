@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dasvnd47v636f"]
+[gd_scene load_steps=21 format=3 uid="uid://dasvnd47v636f"]
 
 [ext_resource type="Script" uid="uid://bv0ndvi71uajr" path="res://scripts/minigame.gd" id="1_sdgbx"]
 [ext_resource type="Texture2D" uid="uid://ypufandbmdgd" path="res://assets/Scanner/Bed for scanner.png" id="2_1pb3s"]
@@ -22,14 +22,50 @@ font_color = Color(0.056291588, 0.056291603, 0.056291595, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_0o4au"]
 font_color = Color(0.017732391, 0.017732391, 0.01773239, 1)
 
+[sub_resource type="Animation" id="Animation_pyft4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("scanner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(114, 47)]
+}
+
+[sub_resource type="Animation" id="Animation_mup28"]
+resource_name = "XeroxScan"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("scanner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(114, 47), Vector2(860, 47), Vector2(117, 47)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pyft4"]
+_data = {
+&"RESET": SubResource("Animation_pyft4"),
+&"XeroxScan": SubResource("Animation_mup28")
+}
+
 [node name="Minigame" type="Node2D"]
 script = ExtResource("1_sdgbx")
 
 [node name="Health" parent="." instance=ExtResource("3_sdgbx")]
-visible = false
-position = Vector2(988, 273)
+position = Vector2(980, 276)
 rotation = 1.5707964
-scale = Vector2(0.28709126, 0.1085607)
+scale = Vector2(0.263, 0.1)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -96,6 +132,8 @@ position = Vector2(424.24994, 305.62497)
 scale = Vector2(0.3220358, 0.3101176)
 texture = ExtResource("4_a6aou")
 
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
@@ -152,6 +190,20 @@ offset_top = 44.0
 offset_right = 997.0
 offset_bottom = 128.0
 
+[node name="scanner" type="ColorRect" parent="."]
+visible = false
+offset_left = 114.0
+offset_top = 47.0
+offset_right = 118.99982
+offset_bottom = 594.0
+color = Color(0.79607844, 0.43137255, 0.9764706, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pyft4")
+}
+
 [connection signal="pressed" from="confirm" to="." method="_on_confirm_pressed"]
 [connection signal="pressed" from="Info" to="." method="_on_info_pressed"]
 [connection signal="pressed" from="power" to="." method="_on_power_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
