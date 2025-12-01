@@ -4,11 +4,12 @@ extends Node2D
 @export var first = true
 @export var second = false
 @onready var patient_dialog = $Patientdialog
-var Patients = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#DialogueManager.reset_flow()
 	show_patient(DialogueManager.get_ch_name(DialogueManager.get_current_ch()))
+	$Sprite2D/Label.text = "Patients:"+str(DialogueManager.current_flow_index+1)+"/8"
 	#second = true
 	pass # Replace with function body.
 
@@ -53,8 +54,7 @@ func show_patient(sprite_name_to_show: String):
 func next_character() -> void:
 	if DialogueManager.has_character():
 		DialogueManager.advance_character_in_flow()
-		Patients += 1
-		$Sprite2D/Label.text = "Patients:"+str(Patients)+"/8"
+		$Sprite2D/Label.text = "Patients:"+str(DialogueManager.current_flow_index+1)+"/8"
 		show_patient(DialogueManager.get_ch_name(DialogueManager.get_current_ch()))
 		first = true
 	else:
