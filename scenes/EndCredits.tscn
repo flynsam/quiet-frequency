@@ -1,9 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://co87acxwdklxs"]
+[gd_scene load_steps=10 format=3 uid="uid://co87acxwdklxs"]
 
-[ext_resource type="LabelSettings" uid="uid://bid3pgg3un3a" path="res://dialogtext.tres" id="1_8o0d3"]
 [ext_resource type="Script" uid="uid://b6qfsmntscmtn" path="res://scenes/end_credits.gd" id="1_r5lg4"]
+[ext_resource type="FontFile" uid="uid://s111gxtxjs5i" path="res://assets/fonts/Dedicool.ttf" id="2_723fm"]
+[ext_resource type="FontFile" uid="uid://bk0d084brj75" path="res://assets/fonts/CutePixel.ttf" id="3_ph4ia"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hxhly"]
+font = ExtResource("2_723fm")
+font_size = 60
+font_color = Color(1, 0.8784314, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xh8sp"]
+font = ExtResource("2_723fm")
+font_size = 40
+font_color = Color(1, 0.8784314, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t42jo"]
+font = ExtResource("2_723fm")
+font_size = 40
+font_color = Color(1, 0.8784314, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ei3d0"]
+font = ExtResource("2_723fm")
+font_size = 40
+font_color = Color(1, 0.8784314, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pviwy"]
+font = ExtResource("2_723fm")
+font_size = 40
+font_color = Color(1, 0.8784314, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_723fm"]
+font = ExtResource("3_ph4ia")
 font_size = 50
 
 [node name="EndCredits" type="Node2D"]
@@ -12,68 +39,70 @@ script = ExtResource("1_r5lg4")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1150.0
 offset_bottom = 645.0
-color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+color = Color(0.078431375, 0.12156863, 0.34509805, 1)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 222.0
-offset_top = 27.0
-offset_right = 879.0
-offset_bottom = 181.0
-text = "    Thank You for Playing     "
-label_settings = ExtResource("1_8o0d3")
+offset_left = 126.0
+offset_top = 55.0
+offset_right = 1062.0
+offset_bottom = 209.0
+text = "THANK YOU FOR PLAYING"
+label_settings = SubResource("LabelSettings_hxhly")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Flyngsam" type="Label" parent="."]
-offset_left = 337.0
-offset_top = 448.0
-offset_right = 783.0
-offset_bottom = 497.0
+offset_left = 345.0
+offset_top = 426.0
+offset_right = 791.0
+offset_bottom = 475.0
 text = "Programmer : flyngsam"
-label_settings = ExtResource("1_8o0d3")
+label_settings = SubResource("LabelSettings_xh8sp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 344.0
-offset_top = 541.0
-offset_right = 789.0
-offset_bottom = 590.0
+offset_left = 340.0
+offset_top = 510.0
+offset_right = 895.0
+offset_bottom = 559.0
 text = "Ideation : cinnebar_The"
-label_settings = ExtResource("1_8o0d3")
+label_settings = SubResource("LabelSettings_t42jo")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 398.0
-offset_top = 322.0
-offset_right = 696.0
-offset_bottom = 371.0
-text = "Music : Louis"
-label_settings = ExtResource("1_8o0d3")
+offset_left = 446.0
+offset_top = 324.0
+offset_right = 756.0
+offset_bottom = 373.0
+text = "MUSIC : Louis"
+label_settings = SubResource("LabelSettings_ei3d0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="."]
-offset_left = 364.0
-offset_top = 225.0
-offset_right = 753.0
-offset_bottom = 274.0
-text = "Art : @YANKO_ZN"
-label_settings = ExtResource("1_8o0d3")
+offset_left = 403.0
+offset_top = 224.0
+offset_right = 798.0
+offset_bottom = 273.0
+text = "ART: @YANKO_ZN"
+label_settings = SubResource("LabelSettings_pviwy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 847.0
-offset_top = 549.0
-offset_right = 1098.0
-offset_bottom = 613.0
+offset_left = 866.0
+offset_top = 560.0
+offset_right = 1117.0
+offset_bottom = 624.0
 
 [node name="Label" type="Label" parent="TextureButton"]
 layout_mode = 0
-offset_right = 184.0
-offset_bottom = 53.0
+offset_left = 61.0
+offset_top = 19.0
+offset_right = 311.0
+offset_bottom = 88.0
 text = "Play Again"
 label_settings = SubResource("LabelSettings_723fm")
 
