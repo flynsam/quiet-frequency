@@ -39,12 +39,12 @@ region = Rect2(2776, 1063, 680, 1054)
 atlas = ExtResource("5_54rw1")
 region = Rect2(2157, 608, 540, 1509)
 
+[sub_resource type="Animation" id="Animation_k8aie"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_54rw1"]
 resource_name = "dialog_visi"
 length = 3.0
-
-[sub_resource type="Animation" id="Animation_k8aie"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_51a5n"]
 _data = {
@@ -134,5 +134,3 @@ scale = Vector2(0.7, 0.7)
 libraries = {
 &"": SubResource("AnimationLibrary_51a5n")
 }
-
-[connection signal="pressed" from="minigamescreen" to="." method="_on_minigamescreen_pressed"]
