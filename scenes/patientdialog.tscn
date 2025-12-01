@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://krhslnvls2o3"]
+[gd_scene load_steps=7 format=3 uid="uid://krhslnvls2o3"]
 
 [ext_resource type="Script" uid="uid://civ7yhwyjnwlv" path="res://scenes/patientdialog.gd" id="1_nmv4l"]
 [ext_resource type="Texture2D" uid="uid://cbhbrhfixlp2j" path="res://assets/ui/UI 2.png" id="2_pqpbp"]
 [ext_resource type="LabelSettings" uid="uid://bid3pgg3un3a" path="res://dialogtext.tres" id="3_ntbi5"]
-[ext_resource type="Script" uid="uid://wt23rpkelurx" path="res://scenes/label.gd" id="4_07ctp"]
 [ext_resource type="FontFile" uid="uid://bk0d084brj75" path="res://assets/fonts/CutePixel.ttf" id="4_ntbi5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_07ctp"]
@@ -32,7 +31,6 @@ offset_bottom = 93.645874
 text = "Test text TEst text text test"
 label_settings = ExtResource("3_ntbi5")
 autowrap_mode = 3
-script = ExtResource("4_07ctp")
 
 [node name="Timer" type="Timer" parent="dialog/Label"]
 wait_time = 0.5

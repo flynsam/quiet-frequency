@@ -1,5 +1,5 @@
 extends Label
-
+'''
 var full_text: String # The complete text you want to display
 var characters_per_second: float = 20.0 # Typing speed in chars/sec
 var time_elapsed: float = 0.0
@@ -42,3 +42,4 @@ func finish_typing_immediately():
 	
 	set_process(false) 
 	
+'''

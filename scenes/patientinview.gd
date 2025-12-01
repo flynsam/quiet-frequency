@@ -14,8 +14,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	show_patient(DialogueManager.get_ch_name(DialogueManager.get_current_ch()))
-	patientout=true
-	pateintin=false
+	
 	pass # Replace with function body.
 
 

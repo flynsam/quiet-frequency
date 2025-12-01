@@ -8,6 +8,7 @@ extends Node2D
 func _ready() -> void:
 	#DialogueManager.reset_flow()
 	show_patient(DialogueManager.get_ch_name(DialogueManager.get_current_ch()))
+	#second = true
 	pass # Replace with function body.
 
 
@@ -55,6 +56,7 @@ func next_character() -> void:
 		first = true
 	else:
 		#end game credits
+		get_tree().change_scene_to_file("res://scenes/EndCredits.tscn")
 		pass
 	pass
 func _on_computer_pressed() -> void:

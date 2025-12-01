@@ -19,7 +19,7 @@ func game_start() ->void:
 	var f = freq.instantiate()
 	var i = ice.instantiate()
 	var s = color.instantiate()
-	var games = [f,i,s]
+	var games = [f,s,i]
 	add_child(games[DialogueManager.get_game_name(DialogueManager.get_current_ch())])
 	$Health.game_start = true
 	$Health.visible = true

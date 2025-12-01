@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://co87acxwdklxs"]
+
+[ext_resource type="LabelSettings" uid="uid://bid3pgg3un3a" path="res://dialogtext.tres" id="1_8o0d3"]
+[ext_resource type="Script" uid="uid://b6qfsmntscmtn" path="res://scenes/end_credits.gd" id="1_r5lg4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_723fm"]
+font_size = 50
+
+[node name="EndCredits" type="Node2D"]
+script = ExtResource("1_r5lg4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1150.0
+offset_bottom = 645.0
+color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 222.0
+offset_top = 27.0
+offset_right = 879.0
+offset_bottom = 181.0
+text = "    Thank You for Playing     "
+label_settings = ExtResource("1_8o0d3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Flyngsam" type="Label" parent="."]
+offset_left = 337.0
+offset_top = 448.0
+offset_right = 783.0
+offset_bottom = 497.0
+text = "Programmer : flyngsam"
+label_settings = ExtResource("1_8o0d3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 344.0
+offset_top = 541.0
+offset_right = 789.0
+offset_bottom = 590.0
+text = "Ideation : cinnebar_The"
+label_settings = ExtResource("1_8o0d3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 398.0
+offset_top = 322.0
+offset_right = 696.0
+offset_bottom = 371.0
+text = "Music : Louis"
+label_settings = ExtResource("1_8o0d3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 364.0
+offset_top = 225.0
+offset_right = 753.0
+offset_bottom = 274.0
+text = "Art : @YANKO_ZN"
+label_settings = ExtResource("1_8o0d3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 847.0
+offset_top = 549.0
+offset_right = 1098.0
+offset_bottom = 613.0
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_right = 184.0
+offset_bottom = 53.0
+text = "Play Again"
+label_settings = SubResource("LabelSettings_723fm")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
