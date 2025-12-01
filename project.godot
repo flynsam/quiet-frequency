@@ -21,4 +21,6 @@ DialogueManager="*res://scripts/global_character.gd"
 
 [display]
 
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://lbxrw5dubpwo"

@@ -34,3 +34,10 @@ func _on_match_pressed() -> void:
 		game_end = true
 
 	pass # Replace with function body.
+
+
+
+
+func _on_info_toggled(toggled_on: bool) -> void:
+	$CanvasLayer.visible = ! $CanvasLayer.visible
+	pass # Replace with function body.

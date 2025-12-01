@@ -1,6 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://ijnsfuj045ct"]
+[gd_scene load_steps=7 format=3 uid="uid://ijnsfuj045ct"]
 
 [ext_resource type="Script" uid="uid://ou4yelj1mbl0" path="res://scenes/miniGames/icebreaker.gd" id="1_16ig3"]
+[ext_resource type="Texture2D" uid="uid://cdj54y5ijg0eh" path="res://assets/Scanner/Screen UI.png" id="2_uo20t"]
+[ext_resource type="FontFile" uid="uid://bk0d084brj75" path="res://assets/fonts/CutePixel.ttf" id="3_kb4w4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_025xq"]
+atlas = ExtResource("2_uo20t")
+region = Rect2(176, 873, 264, 238)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36wyp"]
+atlas = ExtResource("2_uo20t")
+region = Rect2(548, 579, 264, 238)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2w2if"]
+font = ExtResource("3_kb4w4")
+font_size = 40
+font_color = Color(0.7137255, 0.42745098, 0.9372549, 1)
 
 [node name="Icebreaker" type="Node2D"]
 script = ExtResource("1_16ig3")
+
+[node name="info" type="TextureButton" parent="."]
+offset_left = 785.0
+offset_top = 69.0
+offset_right = 833.0
+offset_bottom = 118.0
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_025xq")
+texture_pressed = SubResource("AtlasTexture_36wyp")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 163.0
+offset_top = 403.0
+offset_right = 932.0
+offset_bottom = 572.0
+text = "- Break ice by clicking on the particles
+
+- Scan again by clicking the button on the
+right to check if brain is unforzen."
+label_settings = SubResource("LabelSettings_2w2if")
+
+[connection signal="toggled" from="info" to="." method="_on_info_toggled"]

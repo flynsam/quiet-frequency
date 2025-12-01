@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlu8gfu86i8uu"]
+[gd_scene load_steps=11 format=3 uid="uid://dlu8gfu86i8uu"]
 
 [ext_resource type="Script" uid="uid://d1insbsjvt318" path="res://scripts/frequency.gd" id="1_7pqbc"]
 [ext_resource type="Texture2D" uid="uid://cdj54y5ijg0eh" path="res://assets/Scanner/Screen UI.png" id="2_swj1j"]
-[ext_resource type="LabelSettings" uid="uid://bid3pgg3un3a" path="res://dialogtext.tres" id="3_1oo5x"]
+[ext_resource type="FontFile" uid="uid://bk0d084brj75" path="res://assets/fonts/CutePixel.ttf" id="3_1oo5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1oo5x"]
 atlas = ExtResource("2_swj1j")
@@ -27,6 +27,11 @@ region = Rect2(176, 873, 264, 238)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xj4f3"]
 atlas = ExtResource("2_swj1j")
 region = Rect2(548, 579, 264, 238)
+
+[sub_resource type="LabelSettings" id="LabelSettings_unls8"]
+font = ExtResource("3_1oo5x")
+font_size = 40
+font_color = Color(0.7137255, 0.42745098, 0.9372549, 1)
 
 [node name="Frequency" type="Node2D"]
 script = ExtResource("1_7pqbc")
@@ -83,23 +88,16 @@ stretch_mode = 0
 visible = false
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 122.0
-offset_top = 489.0
-offset_right = 891.0
-offset_bottom = 642.0
-text = "Increase or Decrease frequency 
-and amplitude to match the purple wave"
-label_settings = ExtResource("3_1oo5x")
+offset_left = 152.0
+offset_top = 138.0
+offset_right = 921.0
+offset_bottom = 350.0
+text = "- Increase or Decrease frequency 
+and amplitude to match the purple wave
 
-[node name="Label2" type="Label" parent="CanvasLayer"]
-offset_left = 685.0
-offset_top = 131.0
-offset_right = 971.0
-offset_bottom = 284.0
-text = "After matching
-Press      ->
-"
-label_settings = ExtResource("3_1oo5x")
+- Scan again by clicking the button on the
+right to check match."
+label_settings = SubResource("LabelSettings_unls8")
 
 [connection signal="pressed" from="FrequencyDecrease" to="." method="_on_frequency_decrease_pressed"]
 [connection signal="pressed" from="FrequencyIncrease" to="." method="_on_frequency_increase_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://co87acxwdklxs"]
+[gd_scene load_steps=13 format=3 uid="uid://co87acxwdklxs"]
 
 [ext_resource type="Script" uid="uid://b6qfsmntscmtn" path="res://scenes/end_credits.gd" id="1_r5lg4"]
 [ext_resource type="FontFile" uid="uid://s111gxtxjs5i" path="res://assets/fonts/Dedicool.ttf" id="2_723fm"]
@@ -33,6 +33,115 @@ font_color = Color(1, 0.8784314, 1, 1)
 font = ExtResource("3_ph4ia")
 font_size = 50
 
+[sub_resource type="Animation" id="Animation_723fm"]
+resource_name = "new_animation"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label4:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flyngsam:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.02, 4.02),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ph4ia"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label4:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flyngsam:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hxhly"]
+_data = {
+&"RESET": SubResource("Animation_ph4ia"),
+&"new_animation": SubResource("Animation_723fm")
+}
+
 [node name="EndCredits" type="Node2D"]
 script = ExtResource("1_r5lg4")
 
@@ -52,6 +161,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Flyngsam" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = 345.0
 offset_top = 426.0
 offset_right = 791.0
@@ -62,6 +172,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = 340.0
 offset_top = 510.0
 offset_right = 895.0
@@ -72,6 +183,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = 446.0
 offset_top = 324.0
 offset_right = 756.0
@@ -82,6 +194,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = 403.0
 offset_top = 224.0
 offset_right = 798.0
@@ -105,5 +218,10 @@ offset_right = 311.0
 offset_bottom = 88.0
 text = "Play Again"
 label_settings = SubResource("LabelSettings_723fm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hxhly")
+}
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

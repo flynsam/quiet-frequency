@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://cr2g8yw51id8l"]
+[gd_scene load_steps=22 format=3 uid="uid://cr2g8yw51id8l"]
 
 [ext_resource type="Script" uid="uid://cjgmllerjpbvx" path="res://scenes/doctorview.gd" id="1_0no7a"]
 [ext_resource type="Texture2D" uid="uid://coj1x4c6mq0af" path="res://assets/Main Room Empty.png" id="2_0no7a"]
 [ext_resource type="Texture2D" uid="uid://de1eu57o5v30k" path="res://assets/NPC/Doctor.png" id="3_2vwae"]
 [ext_resource type="Texture2D" uid="uid://bfmryc8bqo0co" path="res://assets/NPC/NPCs.png" id="4_s4e2p"]
 [ext_resource type="PackedScene" uid="uid://krhslnvls2o3" path="res://scenes/patientdialog.tscn" id="5_kt2x8"]
+[ext_resource type="Texture2D" uid="uid://cbhbrhfixlp2j" path="res://assets/ui/UI 2.png" id="6_7hru0"]
+[ext_resource type="FontFile" uid="uid://bk0d084brj75" path="res://assets/fonts/CutePixel.ttf" id="7_32knp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7hru0"]
 atlas = ExtResource("4_s4e2p")
@@ -128,6 +130,14 @@ _data = {
 &"fade_out": SubResource("Animation_kt2x8")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0aaa"]
+atlas = ExtResource("6_7hru0")
+region = Rect2(1051, 1003, 584, 174)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ur4ca"]
+font = ExtResource("7_32knp")
+font_size = 100
+
 [node name="Doctorview" type="Node2D"]
 script = ExtResource("1_0no7a")
 
@@ -141,12 +151,6 @@ offset_left = 807.2129
 offset_top = -297.2149
 offset_right = 1334.8362
 offset_bottom = 279.77576
-
-[node name="patient" type="MenuButton" parent="Background"]
-offset_left = 1006.2942
-offset_top = 485.54895
-offset_right = 1535.1042
-offset_bottom = 882.8163
 
 [node name="Doctor" type="Sprite2D" parent="."]
 position = Vector2(749.5, 377.5)
@@ -213,5 +217,24 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(237, 169)
 scale = Vector2(0.75, 0.75)
 
+[node name="patient2" type="MenuButton" parent="."]
+offset_left = 947.0
+offset_top = 513.0
+offset_right = 1002.0
+offset_bottom = 560.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1005.50006, 42.124996)
+scale = Vector2(0.4880139, 0.3893678)
+texture = SubResource("AtlasTexture_m0aaa")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -228.47723
+offset_top = -61.959404
+offset_right = 253.52277
+offset_bottom = 38.040596
+text = "Patients: 1/8"
+label_settings = SubResource("LabelSettings_ur4ca")
+
 [connection signal="pressed" from="Background/computer" to="." method="_on_computer_pressed"]
-[connection signal="pressed" from="Background/patient" to="." method="_on_patient_pressed"]
+[connection signal="pressed" from="patient2" to="." method="_on_patient_pressed"]
