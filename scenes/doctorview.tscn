@@ -1,34 +1,229 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr2g8yw51id8l"]
+[gd_scene load_steps=18 format=3 uid="uid://cr2g8yw51id8l"]
 
 [ext_resource type="Script" uid="uid://cjgmllerjpbvx" path="res://scenes/doctorview.gd" id="1_0no7a"]
-[ext_resource type="Texture2D" uid="uid://dt5ja7gghfac8" path="res://assets/doctorview.png" id="2_2vwae"]
+[ext_resource type="Texture2D" uid="uid://coj1x4c6mq0af" path="res://assets/Main Room Empty.png" id="2_0no7a"]
+[ext_resource type="Texture2D" uid="uid://de1eu57o5v30k" path="res://assets/NPC/Doctor.png" id="3_2vwae"]
+[ext_resource type="Texture2D" uid="uid://bfmryc8bqo0co" path="res://assets/NPC/NPCs.png" id="4_s4e2p"]
+[ext_resource type="PackedScene" uid="uid://krhslnvls2o3" path="res://scenes/patientdialog.tscn" id="5_kt2x8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hru0"]
+atlas = ExtResource("4_s4e2p")
+region = Rect2(131, 1049, 323, 1068)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_462lc"]
+atlas = ExtResource("4_s4e2p")
+region = Rect2(1037, 1487, 404, 626)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7d1m"]
+atlas = ExtResource("4_s4e2p")
+region = Rect2(1506, 1023, 621, 1094)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dueym"]
+atlas = ExtResource("4_s4e2p")
+region = Rect2(3476, 1206, 446, 911)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32knp"]
+atlas = ExtResource("4_s4e2p")
+region = Rect2(3952, 843, 409, 1274)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib4uf"]
+atlas = ExtResource("4_s4e2p")
+region = Rect2(546, 1122, 467, 995)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt2x8"]
+atlas = ExtResource("4_s4e2p")
+region = Rect2(2776, 1063, 680, 1054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4e2p"]
+atlas = ExtResource("4_s4e2p")
+region = Rect2(2157, 608, 540, 1509)
+
+[sub_resource type="Animation" id="Animation_bqcku"]
+resource_name = "fade_in"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Patientdialog:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.0666666, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("patient:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-200, 613), Vector2(210, 613)]
+}
+
+[sub_resource type="Animation" id="Animation_s4e2p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Patientdialog:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("patient:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(210, 613.00006)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Patientdialog:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kt2x8"]
+resource_name = "fade_out"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("patient:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.97, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(210, 613.00006), Vector2(-200, 613)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Patientdialog:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kt2x8"]
+_data = {
+&"RESET": SubResource("Animation_s4e2p"),
+&"fade_in": SubResource("Animation_bqcku"),
+&"fade_out": SubResource("Animation_kt2x8")
+}
 
 [node name="Doctorview" type="Node2D"]
 script = ExtResource("1_0no7a")
 
-[node name="Doctorview" type="Sprite2D" parent="."]
-position = Vector2(574.5, 324)
-scale = Vector2(0.7467448, 0.6308594)
-texture = ExtResource("2_2vwae")
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(564.50006, 316.00003)
+scale = Vector2(0.3214765, 0.33982155)
+texture = ExtResource("2_0no7a")
 
-[node name="computer" type="MenuButton" parent="Doctorview"]
-offset_left = 239.03748
-offset_top = -309.10217
-offset_right = 766.66077
-offset_bottom = 267.8885
+[node name="computer" type="MenuButton" parent="Background"]
+offset_left = 807.2129
+offset_top = -297.2149
+offset_right = 1334.8362
+offset_bottom = 279.77576
 
-[node name="patient" type="MenuButton" parent="Doctorview"]
-offset_left = -691.6687
-offset_top = -278.9845
-offset_right = 180.74976
-offset_bottom = 317.02783
+[node name="patient" type="MenuButton" parent="Background"]
+offset_left = 1192.9331
+offset_top = 603.2578
+offset_right = 1535.1042
+offset_bottom = 882.8163
 
-[node name="dialog" type="MenuButton" parent="."]
-offset_left = 434.0
-offset_top = 528.0
-offset_right = 933.0
-offset_bottom = 645.0
+[node name="Doctor" type="Sprite2D" parent="."]
+position = Vector2(749.5, 377.5)
+scale = Vector2(0.19573897, 0.20508659)
+texture = ExtResource("3_2vwae")
 
-[connection signal="pressed" from="Doctorview/computer" to="." method="_on_computer_pressed"]
-[connection signal="pressed" from="Doctorview/patient" to="." method="_on_patient_pressed"]
-[connection signal="pressed" from="dialog" to="." method="_on_dialog_pressed"]
+[node name="patient" type="Node2D" parent="."]
+position = Vector2(210, 613.00006)
+scale = Vector2(0.9, 0.9)
+
+[node name="patience" type="Sprite2D" parent="patient"]
+visible = false
+texture = SubResource("AtlasTexture_7hru0")
+
+[node name="cat" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(-22.222229, -168.88896)
+scale = Vector2(0.9140941, 0.81063867)
+texture = SubResource("AtlasTexture_462lc")
+
+[node name="coolguy" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(79.44444, -215.26869)
+scale = Vector2(0.7031669, 0.54490805)
+texture = SubResource("AtlasTexture_h7d1m")
+
+[node name="cyborg" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(12.22221, -121.111176)
+scale = Vector2(0.70718914, 0.5704103)
+texture = SubResource("AtlasTexture_dueym")
+
+[node name="demon" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(1.1111107, -145.55563)
+scale = Vector2(0.58363575, 0.5171178)
+texture = SubResource("AtlasTexture_32knp")
+
+[node name="offish" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(19.105055, -151.49738)
+scale = Vector2(0.66235816, 0.52630365)
+texture = SubResource("AtlasTexture_ib4uf")
+
+[node name="ram" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(46.162025, -139.12958)
+scale = Vector2(0.5606073, 0.42121753)
+texture = SubResource("AtlasTexture_kt2x8")
+
+[node name="sirene" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(29.857555, -179.5274)
+scale = Vector2(0.76490456, 0.49270988)
+texture = SubResource("AtlasTexture_s4e2p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kt2x8")
+}
+
+[node name="Patientdialog" parent="." instance=ExtResource("5_kt2x8")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(237, 169)
+scale = Vector2(0.75, 0.75)
+
+[connection signal="pressed" from="Background/computer" to="." method="_on_computer_pressed"]
+[connection signal="pressed" from="Background/patient" to="." method="_on_patient_pressed"]

@@ -12,9 +12,9 @@ func _ready() -> void:
 		ice_nodes.append(ice.instantiate())
 		ice_nodes[i].position.x = randi_range(128+100,896-100)#+get_parent().shape.positon.x
 		ice_nodes[i].position.y = randi_range(64+100,576-100)#+get_parent().positon.y
-		if randi_range(0,2) == 0:
-			ice_nodes[i].with_dollar = true
-			print('hasdollar')
+		#if randi_range(0,2) == 0:
+		#	ice_nodes[i].with_dollar = true
+		#	print('hasdollar')
 		add_child(ice_nodes[i])
 	pass # Replace with function body.
 

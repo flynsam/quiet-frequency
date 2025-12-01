@@ -9,9 +9,10 @@ func _ready():
 	
 	
 	# Set initial visible characters to 0
-	visible_characters = 0 
+	#visible_characters = 0 
 	# Start the typing effect
-	start_typing()
+	#start_typing()
+	finish_typing_immediately()
 
 func start_typing():
 	time_elapsed = 0.0

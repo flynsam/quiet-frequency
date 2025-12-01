@@ -14,6 +14,11 @@ config/name="Quiet Frequency"
 run/main_scene="uid://ergv744kqdnu"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
+[autoload]
+
+Music="*res://scenes/music.tscn"
+DialogueManager="*res://scripts/global_character.gd"
+
 [display]
 
 mouse_cursor/custom_image="uid://lbxrw5dubpwo"

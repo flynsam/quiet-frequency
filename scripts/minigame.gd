@@ -4,25 +4,28 @@ var freq = preload("res://scenes/miniGames/frequency.tscn")
 var ice = preload("res://scenes/miniGames/icebreaker.tscn")
 var color = preload("res://scenes/miniGames/sortcolors.tscn")
 var start = false
+@onready var next = $Back
 @onready var scanner_line = $scanner# Get the path to your scanner node
 @onready var animation_player = $AnimationPlayer
 const SCAN_ANIM_NAME = "XeroxScan"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scanner_line.hide()
+	show_patient(DialogueManager.get_ch_name(DialogueManager.get_current_ch()))
+	
 	pass # Replace with function body.
 
 func game_start() ->void:
 	var f = freq.instantiate()
 	var i = ice.instantiate()
 	var s = color.instantiate()
-	add_child(f)
+	var games = [f,i,s]
+	add_child(games[DialogueManager.get_game_name(DialogueManager.get_current_ch())])
 	$Health.game_start = true
 	$Health.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	pass
 
 
@@ -43,6 +46,7 @@ func _on_confirm_pressed() -> void:
 	if get_child(-1).game_end:
 		#$Label.text = "Sucess"
 		$Health.game_end = true
+		next.visible = true
 	else:
 		$Health.game_end = false
 	 # Replace with function body.
@@ -92,5 +96,17 @@ func show_patient(sprite_name_to_show: String):
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == SCAN_ANIM_NAME:
 		scanner_line.hide()
-		print("done")
+		#print("done")
+	pass # Replace with function body.
+
+
+func _on_back_pressed() -> void:
+	var new_scene_resource = preload("res://scenes/patientinview.tscn")
+	var new_scene_instance = new_scene_resource.instantiate() 
+	
+	new_scene_instance.patientout = true
+	new_scene_instance.pateintin = false
+	get_tree().get_root().add_child(new_scene_instance)
+	get_tree().set_current_scene(new_scene_instance)
+	queue_free()
 	pass # Replace with function body.

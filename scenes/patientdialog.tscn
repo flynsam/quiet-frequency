@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://krhslnvls2o3"]
+[gd_scene load_steps=8 format=3 uid="uid://krhslnvls2o3"]
 
 [ext_resource type="Script" uid="uid://civ7yhwyjnwlv" path="res://scenes/patientdialog.gd" id="1_nmv4l"]
-[ext_resource type="Texture2D" uid="uid://dcsher1cihqgq" path="res://assets/patientdialog.png" id="2_20vvt"]
 [ext_resource type="Texture2D" uid="uid://cbhbrhfixlp2j" path="res://assets/ui/UI 2.png" id="2_pqpbp"]
 [ext_resource type="LabelSettings" uid="uid://bid3pgg3un3a" path="res://dialogtext.tres" id="3_ntbi5"]
 [ext_resource type="Script" uid="uid://wt23rpkelurx" path="res://scenes/label.gd" id="4_07ctp"]
@@ -18,55 +17,43 @@ font_color = Color(0.40392157, 0.3254902, 0.40392157, 1)
 [node name="Patientdialog" type="Node2D"]
 script = ExtResource("1_nmv4l")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="dialog" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-1, -17)
-
-[node name="box" type="Sprite2D" parent="ParallaxBackground/dialog"]
-position = Vector2(595.4, 479.8125)
+[node name="dialog" type="Sprite2D" parent="."]
+position = Vector2(594.4, 462.8125)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_pqpbp")
 region_enabled = true
 region_rect = Rect2(958, 1198, 1528, 346)
 
-[node name="Label" type="Label" parent="ParallaxBackground/dialog/box"]
+[node name="Label" type="Label" parent="dialog"]
 offset_left = -642.3334
 offset_top = -49.6875
-offset_right = 481.0
-offset_bottom = 61.979187
+offset_right = 589.3334
+offset_bottom = 93.645874
 text = "Test text TEst text text test"
 label_settings = ExtResource("3_ntbi5")
 autowrap_mode = 3
 script = ExtResource("4_07ctp")
 
-[node name="Timer" type="Timer" parent="ParallaxBackground/dialog/box/Label"]
+[node name="Timer" type="Timer" parent="dialog/Label"]
 wait_time = 0.5
 one_shot = true
 
-[node name="name" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-1, -17)
-
-[node name="box" type="Sprite2D" parent="ParallaxBackground/name"]
-position = Vector2(328.2126, 396.5)
+[node name="name" type="Sprite2D" parent="."]
+position = Vector2(327.2126, 379.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_pqpbp")
 region_enabled = true
 region_rect = Rect2(1051, 1003, 584, 174)
 
-[node name="Label" type="Label" parent="ParallaxBackground/name/box"]
+[node name="Label" type="Label" parent="name"]
 offset_left = -258.42517
 offset_top = -85.0
 offset_right = 266.57483
 offset_bottom = 66.0
 text = "PATIENCE"
 label_settings = SubResource("LabelSettings_07ctp")
-
-[node name="Patientdialog" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(575, 323.5)
-scale = Vector2(0.74869794, 0.63183594)
-texture = ExtResource("2_20vvt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="next" type="TextureButton" parent="."]
 offset_left = 947.0

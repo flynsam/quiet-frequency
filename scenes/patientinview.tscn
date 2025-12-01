@@ -1,20 +1,138 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg2kwa84wqkuy"]
+[gd_scene load_steps=18 format=3 uid="uid://cg2kwa84wqkuy"]
 
 [ext_resource type="Script" uid="uid://djc1bujjq1li5" path="res://scenes/patientinview.gd" id="1_7dts6"]
+[ext_resource type="PackedScene" uid="uid://c438thxwe1a12" path="res://scenes/misc/windowveiw.tscn" id="2_fcshr"]
 [ext_resource type="Texture2D" uid="uid://toyv7vnlgj1y" path="res://assets/patientin.png" id="2_t16g8"]
+[ext_resource type="Texture2D" uid="uid://de1eu57o5v30k" path="res://assets/NPC/Doctor.png" id="4_tlgpy"]
+[ext_resource type="Texture2D" uid="uid://bfmryc8bqo0co" path="res://assets/NPC/NPCs.png" id="5_54rw1"]
+[ext_resource type="PackedScene" uid="uid://krhslnvls2o3" path="res://scenes/patientdialog.tscn" id="6_tlgpy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlgpy"]
+atlas = ExtResource("5_54rw1")
+region = Rect2(131, 1049, 323, 1068)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54rw1"]
+atlas = ExtResource("5_54rw1")
+region = Rect2(1037, 1487, 404, 626)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8aie"]
+atlas = ExtResource("5_54rw1")
+region = Rect2(1506, 1023, 621, 1094)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51a5n"]
+atlas = ExtResource("5_54rw1")
+region = Rect2(3476, 1206, 446, 911)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2kn6"]
+atlas = ExtResource("5_54rw1")
+region = Rect2(3952, 843, 409, 1274)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32nqo"]
+atlas = ExtResource("5_54rw1")
+region = Rect2(546, 1122, 467, 995)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls2ym"]
+atlas = ExtResource("5_54rw1")
+region = Rect2(2776, 1063, 680, 1054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10y2d"]
+atlas = ExtResource("5_54rw1")
+region = Rect2(2157, 608, 540, 1509)
+
+[sub_resource type="Animation" id="Animation_54rw1"]
+resource_name = "dialog_visi"
+length = 3.0
+
+[sub_resource type="Animation" id="Animation_k8aie"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_51a5n"]
+_data = {
+&"RESET": SubResource("Animation_k8aie"),
+&"dialog_visi": SubResource("Animation_54rw1")
+}
 
 [node name="Patientinview" type="Node2D"]
 script = ExtResource("1_7dts6")
 
+[node name="Windowveiw" parent="." instance=ExtResource("2_fcshr")]
+position = Vector2(-12, -10)
+
 [node name="Patientin" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(576.5, 323.00003)
 scale = Vector2(0.7493489, 0.6347657)
 texture = ExtResource("2_t16g8")
 
 [node name="minigamescreen" type="MenuButton" parent="."]
-offset_left = 687.0
-offset_top = 80.0
-offset_right = 1115.0
-offset_bottom = 578.0
+offset_left = 897.0
+offset_top = 266.0
+offset_right = 989.0
+offset_bottom = 343.0
+
+[node name="doctor" type="Sprite2D" parent="."]
+position = Vector2(1035, 435)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("4_tlgpy")
+
+[node name="patient" type="Node2D" parent="."]
+position = Vector2(108, 679.9)
+scale = Vector2(0.27, 0.27)
+
+[node name="patience" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(296.29626, -744.0741)
+scale = Vector2(1.4631922, 1.1831738)
+texture = SubResource("AtlasTexture_tlgpy")
+
+[node name="cat" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(292.5926, -466.2963)
+scale = Vector2(1.1773684, 1.0901285)
+texture = SubResource("AtlasTexture_54rw1")
+
+[node name="coolguy" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(348.14813, -792.2223)
+scale = Vector2(1.1865568, 1.1763743)
+texture = SubResource("AtlasTexture_k8aie")
+
+[node name="cyborg" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(381.48148, -736.6667)
+scale = Vector2(1.4253442, 1.2947755)
+texture = SubResource("AtlasTexture_51a5n")
+
+[node name="demon" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(307.40735, -899.6297)
+scale = Vector2(1.3761, 1.2305063)
+texture = SubResource("AtlasTexture_u2kn6")
+
+[node name="offish" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(251.85187, -807.03705)
+scale = Vector2(1.3555138, 1.469166)
+texture = SubResource("AtlasTexture_32nqo")
+
+[node name="ram" type="Sprite2D" parent="patient"]
+visible = false
+position = Vector2(444.4445, -777.40753)
+scale = Vector2(1.2904547, 1.276513)
+texture = SubResource("AtlasTexture_ls2ym")
+
+[node name="sirene" type="Sprite2D" parent="patient"]
+position = Vector2(237.03703, -970.00006)
+scale = Vector2(1.7277881, 1.1312371)
+texture = SubResource("AtlasTexture_10y2d")
+
+[node name="doctordialog" parent="." instance=ExtResource("6_tlgpy")]
+position = Vector2(257, -63.00001)
+scale = Vector2(0.7, 0.7)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_51a5n")
+}
 
 [connection signal="pressed" from="minigamescreen" to="." method="_on_minigamescreen_pressed"]
